@@ -1,6 +1,7 @@
 package lotto.view.handler;
 
 import java.util.function.Supplier;
+import lotto.util.StringConvertor;
 import lotto.view.ErrorView;
 import lotto.view.InputView;
 
@@ -13,8 +14,9 @@ public class InputHandler {
         this.errorView = errorView;
     }
 
-    public String receiveValidatedPurchasePrice() {
-        return receiveValidatedInput(inputView::inputPurchasePrice);
+    public int receiveValidatedPurchasePrice() {
+        String price = receiveValidatedInput(inputView::inputPurchasePrice);
+        return StringConvertor.convertStringToInt(price);
     }
 
     private <T> T receiveValidatedInput(Supplier<T> inputView) {
