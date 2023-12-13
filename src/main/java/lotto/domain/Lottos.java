@@ -21,8 +21,9 @@ public class Lottos {
     }
 
     private static List<Integer> getSortedList(List<Integer> randomNumbers) {
-        Collections.sort(randomNumbers);
-        return randomNumbers;
+        List<Integer> copyList = new ArrayList<>(randomNumbers);
+        Collections.sort(copyList);
+        return copyList;
     }
 
     public int getSize() {
