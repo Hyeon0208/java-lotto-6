@@ -1,8 +1,11 @@
 package lotto.controlelr;
 
+import java.util.Map;
 import lotto.domain.BonusNumber;
+import lotto.domain.LotteryResult;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseHistory;
+import lotto.domain.Rank;
 import lotto.domain.WinningNumber;
 import lotto.view.OutputView;
 import lotto.view.handler.InputHandler;
@@ -35,6 +38,10 @@ public class LottoController {
         outputView.printBonusNumberInputMessage();
         BonusNumber bonusNumber = createBonusNumberNotContainsWinningNumber(winningNumber);
         outputView.printNewLine();
+
+        Map<Rank, Integer> result = Rank.getRankResult(lottos, winningNumber, bonusNumber);
+        LotteryResult lotteryResult = new LotteryResult(result);
+        outputView.printLotteryResult(lotteryResult);
     }
 
     private BonusNumber createBonusNumberNotContainsWinningNumber(WinningNumber winningNumber) {

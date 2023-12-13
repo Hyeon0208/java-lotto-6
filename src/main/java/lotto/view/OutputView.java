@@ -1,5 +1,6 @@
 package lotto.view;
 
+import lotto.domain.LotteryResult;
 import lotto.domain.Lottos;
 
 public class OutputView {
@@ -27,6 +28,16 @@ public class OutputView {
 
     public void printBonusNumberInputMessage() {
         System.out.println("보너스 번호를 입력해 주세요.");
+    }
+
+    public void printLotteryResult(LotteryResult lotteryResult) {
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        System.out.printf("3개 일치 (5,000원) - %d개\n", lotteryResult.getFifthPlaceCount());
+        System.out.printf("4개 일치 (50,000원) - %d개\n", lotteryResult.getFourthPlaceCount());
+        System.out.printf("5개 일치 (1,500,000원) - %d개\n", lotteryResult.getThirdPlaceCount());
+        System.out.printf("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", lotteryResult.getSecondPlaceCount());
+        System.out.printf("6개 일치 (2,000,000,000원) - %d개\n", lotteryResult.getFirstPlaceCount());
     }
 
     public void printNewLine() {

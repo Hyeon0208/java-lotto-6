@@ -32,4 +32,8 @@ public class Lottos {
     public List<Integer> getLottoNumberBy(int index) {
         return lottos.get(index).getNumbers();
     }
+
+    public Lotto getLottoBy(int index) {
+        return lottos.get(index);
+    }
 }
