@@ -48,4 +48,8 @@ public enum Rank {
                 })
                 .orElse(Rank.NONE);
     }
+
+    public int getPrize() {
+        return prize;
+    }
 }

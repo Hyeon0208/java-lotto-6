@@ -6,6 +6,7 @@ import lotto.domain.LotteryResult;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseHistory;
 import lotto.domain.Rank;
+import lotto.domain.RateOfReturn;
 import lotto.domain.WinningNumber;
 import lotto.view.OutputView;
 import lotto.view.handler.InputHandler;
@@ -42,6 +43,8 @@ public class LottoController {
         Map<Rank, Integer> result = Rank.getRankResult(lottos, winningNumber, bonusNumber);
         LotteryResult lotteryResult = new LotteryResult(result);
         outputView.printLotteryResult(lotteryResult);
+        RateOfReturn rateOfReturn = RateOfReturn.of(purchasePrice, lotteryResult.getTotalPrize());
+        outputView.printRateOfReturn(rateOfReturn);
     }
 
     private BonusNumber createBonusNumberNotContainsWinningNumber(WinningNumber winningNumber) {

@@ -1,9 +1,12 @@
 package lotto.view;
 
+import java.text.DecimalFormat;
 import lotto.domain.LotteryResult;
 import lotto.domain.Lottos;
+import lotto.domain.RateOfReturn;
 
 public class OutputView {
+    private static final String RATE_FORMAT = "#,##0.0";
 
     public void printPurchasePriceInputMessage() {
         System.out.println("구입금액을 입력해 주세요.");
@@ -17,7 +20,7 @@ public class OutputView {
     public void printPurchaseLottos(Lottos lottos) {
         StringBuilder purchseLottos = new StringBuilder();
         for (int i = 0; i < lottos.getSize(); i++) {
-            purchseLottos.append(lottos.getLottoNumberBy(i) + "\n");
+            purchseLottos.append(lottos.getLottoNumberBy(i)).append("\n");
         }
         System.out.println(purchseLottos);
     }
@@ -38,6 +41,11 @@ public class OutputView {
         System.out.printf("5개 일치 (1,500,000원) - %d개\n", lotteryResult.getThirdPlaceCount());
         System.out.printf("5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n", lotteryResult.getSecondPlaceCount());
         System.out.printf("6개 일치 (2,000,000,000원) - %d개\n", lotteryResult.getFirstPlaceCount());
+    }
+
+    public void printRateOfReturn(RateOfReturn rateOfReturn) {
+        DecimalFormat formatter = new DecimalFormat(RATE_FORMAT);
+        System.out.printf("총 수익률은 %s%%입니다.", formatter.format(rateOfReturn.getRate()));
     }
 
     public void printNewLine() {

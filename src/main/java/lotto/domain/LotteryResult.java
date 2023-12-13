@@ -28,5 +28,13 @@ public class LotteryResult {
     public int getFirstPlaceCount() {
         return result.getOrDefault(Rank.FIRST_PLACE, 0);
     }
+
+
+    public int getTotalPrize() {
+        return result.entrySet().stream()
+                .filter(entry -> entry.getKey() != Rank.NONE)
+                .mapToInt(entry -> entry.getKey().getPrize() * entry.getValue())
+                .sum();
+    }
 }
 
