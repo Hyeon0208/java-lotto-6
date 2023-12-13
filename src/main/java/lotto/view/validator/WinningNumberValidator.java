@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import lotto.constant.LottoValue;
-import lotto.domain.Lotto;
 import lotto.util.StringConvertor;
 
 public class WinningNumberValidator {
