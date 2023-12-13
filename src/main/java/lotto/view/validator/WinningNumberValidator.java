@@ -3,12 +3,11 @@ package lotto.view.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.constant.LottoValue;
+import lotto.domain.Lotto;
 import lotto.util.StringConvertor;
 
 public class WinningNumberValidator {
-    private static final int LOTTO_SIZE = 6;
-    private static final int MIN_RANGE = 1;
-    private static final int MAX_RANGE = 45;
 
     private WinningNumberValidator() {
     }
@@ -31,7 +30,7 @@ public class WinningNumberValidator {
 
     private static void validateLottoSize(String input) {
         String[] numbers = Separator.COMMA.split(input);
-        if (numbers.length != LOTTO_SIZE) {
+        if (numbers.length != LottoValue.LOTTO_SIZE) {
             throw new IllegalArgumentException("당첨번호는 6개를 입력해야 합니다.");
         }
     }
@@ -63,7 +62,7 @@ public class WinningNumberValidator {
     private static void validateNumberRange(String input) {
         for (String number : Separator.COMMA.split(input)) {
             int num = StringConvertor.convertStringToInt(number);
-            if (num < MIN_RANGE || num > MAX_RANGE) {
+            if (num < LottoValue.MIN_LOTTO_RANGE || num > LottoValue.MAX_LOTTO_RANGE) {
                 throw new IllegalArgumentException("1 ~ 45 범위의 숫자를 입력해야 합니다.");
             }
         }
