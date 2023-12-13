@@ -1,9 +1,9 @@
 package lotto.view.validator;
 
-import lotto.util.IntegerConvertor;
 import lotto.util.StringConvertor;
 
 public class PurchasePriceValidator {
+    private static final int DIVIDE_STANDARD = 1000;
 
     private PurchasePriceValidator() {
     }
@@ -28,7 +28,7 @@ public class PurchasePriceValidator {
 
     private static void validateDivideByThousand(String input) {
         int price = StringConvertor.convertStringToInt(input);
-        if (IntegerConvertor.divideByThousand(price) != 0) {
+        if (price % DIVIDE_STANDARD != 0) {
             throw new IllegalArgumentException("로또는 천원 단위로만 구매 가능합니다.");
         }
     }
