@@ -1,5 +1,6 @@
 package lotto.controlelr;
 
+import java.util.List;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseHistory;
 import lotto.view.OutputView;
@@ -25,5 +26,8 @@ public class LottoController {
         outputView.printPurchaseCount(purchaseCount);
         Lottos lottos = Lottos.from(purchaseCount);
         outputView.printPurchaseLottos(lottos);
+
+        outputView.printWinningNumberInputMessage();
+        List<Integer> WinningNumber = inputHandler.receiveValidatedWinningNumber();
     }
 }
