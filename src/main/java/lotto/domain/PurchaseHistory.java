@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.util.IntegerConvertor;
+
 public class PurchaseHistory {
     private final int purchasePrice;
     private final int purchaseCount;
@@ -10,8 +12,7 @@ public class PurchaseHistory {
     }
 
     public static PurchaseHistory from(int price) {
-        int count = price % 1000;
-        return new PurchaseHistory(price, count);
+        return new PurchaseHistory(price, IntegerConvertor.divideByThousand(price));
     }
 
     public int getPurchasePrice() {
