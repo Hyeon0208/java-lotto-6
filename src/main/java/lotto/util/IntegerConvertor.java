@@ -7,6 +7,6 @@ public class IntegerConvertor {
     }
 
     public static int divideByThousand(int value) {
-        return value % DIVIDE_STANDARD;
+        return value / DIVIDE_STANDARD;
     }
 }
