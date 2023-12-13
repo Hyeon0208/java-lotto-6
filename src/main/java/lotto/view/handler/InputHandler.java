@@ -25,6 +25,11 @@ public class InputHandler {
         return StringConvertor.convertCommaSeparatedStringToIntegerList(winningNumber);
     }
 
+    public int receiveValidatedBonusNumber() {
+        String bonusNumber = receiveValidatedInput(inputView::inputBonusNumber);
+        return StringConvertor.convertStringToInt(bonusNumber);
+    }
+
     private <T> T receiveValidatedInput(Supplier<T> inputView) {
         while (true) {
             try {
